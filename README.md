@@ -9,7 +9,7 @@ This repository contains instructions and scripts for analyzing population genet
 
 - **Inbreeding Coefficients**  
   - F_GRM (Genomic Relationship Matrix-based inbreeding)  
-  - F_UNI (Uniparental inheritance inbreeding)  
+  - F_UNI (Inbreeding based on correlation between uniting gametes)  
   - F_HOM (Homozygosity-based inbreeding)  
 
 - **Principal Component Analysis (PCA)** *(coming soon)*
