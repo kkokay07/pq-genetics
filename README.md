@@ -7,16 +7,14 @@
 This repository contains scripts, datasets, and tools for analyzing population genetics and quantitative genetics metrics. It includes the following:  
 
 - Implementation of various metrics for inbreeding coefficients (e.g., F_GRM, F_UNI, F_HOM).  
-- Scripts for analyzing and visualizing population-specific metrics.  
-- Step-by-step descriptions and documentation for running specific analyses.  
 
+**Note:** Connect with me through **kkokay07@gmail.com** and order me which metric you want to find out. I will make ready to run codes along with instructions. If you want to support my research and free eduction commitment, pay any amount you wish to **8618102886@ybl** UPI ID
 ---
 
 ## Folder Structure  
 
 Each folder corresponds to a specific analysis or metric:  
 1. **Inbreeding Coefficients (F_GRM, F_UNI, F_HOM):** Contains scripts and data for calculating and visualizing inbreeding coefficients using tools like PLINK.  
-2. **Folders for other metrics are created shortly:** Connect with me through kkokay07@gmail.com and order me which metric you want to find out. I will make ready to run codes along with instructions.
 ---
 
 ## Usage  
