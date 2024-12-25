@@ -32,11 +32,10 @@ Each folder corresponds to a specific analysis or metric:
 
 ## Author  
 
-Best Regards,  
 **Dr. Kanaka K. K., PhD, ARS**  
 **Scientist**  
 School of Bioinformatics  
-ICAR-Indian Institute of Agricultural Biotechnology, Ranchi, Jharkhand.  
+ICAR-Indian Institute of Agricultural Biotechnology, India.  
 
 ---
 
