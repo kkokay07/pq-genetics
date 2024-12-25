@@ -1,0 +1,19 @@
+Pre-step 1 (optional): Install PLINK
+- Visit PLINK website.
+- Download Stable (beta 7.7) (Available as of December 25, 2024).
+- Extract the downloaded file using: (Note: Replace bla_bla_bla with the specific file name.)
+unzip plink_bla_bla_bla.zip
+- Add PLINK to your PATH using:(Note: This step is optional. However, adding PLINK to your PATH allows access from any directory.)
+export PATH=$PATH:/path/to/plink
+
+
+Step 1: Run PLINK command in the terminal. This will generate result.eigenvec and result.eigenval files. (Change the species flag --cow if your data is not for cattle. Refer to PLINK documentation for other options.)
+plink --cow --bfile input_file --pca --out result
+
+
+Pre-step 2 (optional): Install Necessary Python Libraries
+pip install pandas matplotlib numpy scipy
+
+
+Step 2: Run the following command to visualize the PCA results. Specify the populations for which you need ellipses. You can mention any no. of populations present in your data:
+python3 pca_visualization.py --eigenvec result.eigenvec --eigenval result.eigenval --fam input_file.fam --ellipse-pops pop1 pop2 --dpi 600
