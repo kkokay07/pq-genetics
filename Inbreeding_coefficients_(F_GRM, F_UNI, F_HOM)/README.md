@@ -1,4 +1,3 @@
-Description of analysis for f3 statistics AKA three population test
 ## Description  
 This repository contains scripts, and tools for analyzing:  
 - Implementation of various metrics for inbreeding coefficients (e.g., F_GRM, F_UNI, F_HOM).  
