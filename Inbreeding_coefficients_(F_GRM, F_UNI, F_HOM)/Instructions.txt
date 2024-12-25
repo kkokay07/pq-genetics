@@ -1,11 +1,14 @@
 Pre-step 1 (optional): If you donot have plink, follow the instructions bellow
+
 - Visit https://www.cog-genomics.org/plink/
 - Download Stable (beta 7.7) (Availbale as per Dec 25th, 2024)
 - Extract the downloaded file using: unzip plink_bla bla bla.zip    (Note; replace bla bla bla with specific name)
 - Add to path using: export PATH=$PATH:/path/to/plink        (Note: Optional. But if you add it to path, then you access plink from any other folders)
 
+
 Step 1: Run following code in terminal. This will generate output.ibc
 plink --bfile input_file --ibc --out output
+
 
 Pre-step 2 (optional): Install necessary python libraries by running following code
 pip install pandas matplotlib seaborn numpy
