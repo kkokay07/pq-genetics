@@ -5,9 +5,52 @@ Dedicated to [**G.J.Mendel**](https://link.springer.com/article/10.3103/S0095452
 ---
 
 ## Description  
-This repository contains scripts, datasets, and tools for analyzing population genetics and quantitative genetics metrics. It includes the following:  
+This repository contains instructions and scripts for analyzing population genetics and quantitative genetics metrics. It includes the following:  
 
-- Implementation of various metrics for inbreeding coefficients (e.g., F_GRM, F_UNI, F_HOM).  
+- **Inbreeding Coefficients**  
+  - F_GRM (Genomic Relationship Matrix-based inbreeding)  
+  - F_UNI (Uniparental inheritance inbreeding)  
+  - F_HOM (Homozygosity-based inbreeding)  
+
+- **Principal Component Analysis (PCA)** *(coming soon)*
+- 
+- **Effective Population Size (Ne)**  *(coming soon)*
+- 
+- **Genetic Diversity Metrics**  *(coming soon)* 
+  - Observed and Expected Heterozygosity (H_O, H_E)  
+  - Allelic Richness  
+  - Fixation Index (F_ST, G_ST)  
+
+- **Population Differentiation**  *(coming soon)* 
+  - Pairwise F_ST  
+  - AMOVA (Analysis of Molecular Variance)  
+
+- **Linkage Disequilibrium (LD)**  *(coming soon)* 
+  - LD decay analysis  
+  - r² and D' metrics  
+
+- **Admixture and Ancestry Analysis** *(coming soon)*  
+
+- **Selection Signatures**  *(coming soon)* 
+  - iHS (Integrated Haplotype Score)  
+  - XP-EHH (Cross-Population Extended Haplotype Homozygosity)  
+  - Tajima's D  
+
+- **Quantitative Genetics Metrics**  *(coming soon)* 
+  - Additive Genetic Variance (σ²A)  
+  - Breeding Values (GEBV/EBV)  
+  - Heritability (h²) estimates  
+  - Genetic Correlations  
+
+- **Genome-Wide Association Studies (GWAS)** *(coming soon)*  
+
+- **Runs of Homozygosity (ROH)** analysis *(coming soon)*  
+  - ROH segments  
+  - ROH-based diversity metrics  
+
+This repository is regularly updated with scripts, examples, and instructions for these metrics. Stay tuned for new additions!  
+
+---  
 
 **Note:** 
 If you need any other population and quantitative genetics metrics which is not documented here, feel free to reach out!
@@ -15,13 +58,6 @@ If you need any other population and quantitative genetics metrics which is not 
 - Email: **kkokay07@gmail.com**  
 - Ask me any metric you want to calculate, and I will provide ready-to-run codes along with detailed instructions.  
 
-
----
-
-## Folder Structure  
-
-Each folder corresponds to a specific analysis or metric:  
-1. **Inbreeding Coefficients (F_GRM, F_UNI, F_HOM):** Contains scripts and data for calculating and visualizing inbreeding coefficients using tools like PLINK.  
 ---
 
 ## Usage  
