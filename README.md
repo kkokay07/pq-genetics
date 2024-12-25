@@ -8,7 +8,22 @@ This repository contains scripts, datasets, and tools for analyzing population g
 
 - Implementation of various metrics for inbreeding coefficients (e.g., F_GRM, F_UNI, F_HOM).  
 
-**Note:** Connect with me through **kkokay07@gmail.com** and order me which metric you want to find out. I will make ready to run codes along with instructions. If you want to support my research and free eduction commitment, pay any amount you wish to **8618102886@ybl** UPI ID
+**Note:** 
+If you need any other population and quantitative genetics metrics which is not documented here, feel free to reach out!
+
+- Email: **kkokay07@gmail.com**  
+- Ask me any metric you want to calculate, and I will provide ready-to-run codes along with detailed instructions.  
+
+---
+
+### Support My Research and Free Education Commitment  
+
+If you want to support my research and free education initiatives, you can contribute any amount to the following UPI ID:  
+
+**8618102886@ybl**
+
+Thank you for your kindness and support!
+
 ---
 
 ## Folder Structure  
