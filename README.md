@@ -1,8 +1,6 @@
 # pq-genetics  
 **Repository for Population Genetics and Quantitative Genetics Metrics Implementation and Visualization**  
-**p** for common **dominant allel freq.** notation we use and also for **population**
-**q** for common **recessive allel freq.** notation we use and also for **quantitative**
-Dedicated to **G.J.Mendel**
+Dedicated to [**G.J.Mendel**](https://link.springer.com/article/10.3103/S0095452723050067)
 
 ---
 
