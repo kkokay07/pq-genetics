@@ -14,15 +14,6 @@ If you need any other population and quantitative genetics metrics which is not 
 - Email: **kkokay07@gmail.com**  
 - Ask me any metric you want to calculate, and I will provide ready-to-run codes along with detailed instructions.  
 
----
-
-### Support My Research and Free Education Commitment  
-
-If you want to support my research and free education initiatives, you can contribute any amount to the following UPI ID:  
-
-**8618102886@ybl**
-
-Thank you for your kindness and support!
 
 ---
 
@@ -41,6 +32,15 @@ Each folder corresponds to a specific analysis or metric:
 
 2. Navigate to the desired folder and follow the Instructions.txt within each folder.  
 
+---
+
+### Support My Research and Free Education Commitment  
+
+If you want to support my research and free education initiatives, you can contribute any amount to the following UPI ID:  
+
+**8618102886@ybl**
+
+Thank you for your kindness and support!
 ---
 
 ## Author  
