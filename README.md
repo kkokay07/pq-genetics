@@ -1,5 +1,8 @@
 # pq-genetics  
 **Repository for Population Genetics and Quantitative Genetics Metrics Implementation and Visualization**  
+**p** for common **dominant allel freq.** notation we use and also for **population**
+**q** for common **recessive allel freq.** notation we use and also for **quantitative**
+Dedicated to **G.J.Mendel**
 
 ---
 
@@ -53,10 +56,8 @@ ICAR-Indian Institute of Agricultural Biotechnology, India.
 ---
 
 ## Connect with Me  
-
-- **[Google Scholar](https://scholar.google.com/citations?user=OdQ7SF8AAAAJ&hl=en)**  
-- **[ResearchGate](https://www.researchgate.net/profile/Kanaka-K-Kresearch)**  
-- **[LinkedIn](https://www.linkedin.com/in/kanaka-k-k/)**  
-- **[Website](https://iiab.icar.gov.in/staff/dr-kanaka-k-k/)**  
+[Scholar](https://scholar.google.com/citations?hl=en&user=0dQ7Sf8AAAAJ&view_op=list_works&sortby=pubdate)
+[ResearchGate](https://www.researchgate.net/profile/Kanaka-K-K/research)
+[Website](https://iiab.icar.gov.in/staff/dr-kanaka-k-k/)
 
 ---  
