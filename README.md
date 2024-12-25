@@ -13,9 +13,9 @@ This repository contains instructions and scripts for analyzing population genet
   - F_HOM (Homozygosity-based inbreeding)  
 
 - **Principal Component Analysis (PCA)** *(coming soon)*
-- 
+
 - **Effective Population Size (Ne)**  *(coming soon)*
-- 
+
 - **Genetic Diversity Metrics**  *(coming soon)* 
   - Observed and Expected Heterozygosity (H_O, H_E)  
   - Allelic Richness  
