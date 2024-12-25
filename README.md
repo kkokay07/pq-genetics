@@ -1,5 +1,3 @@
----
-
 # pq-genetics  
 **Repository for Population Genetics and Quantitative Genetics Metrics Implementation and Visualization**  
 
