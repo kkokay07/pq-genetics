@@ -49,8 +49,8 @@ pip install pandas matplotlib seaborn tqdm
 #### Example `input.txt`:
 ```
 CHR	START	END
-NC_059179.1	34133847	34183847
-NC_059180.1	4133847	41838470
+NC_059179.1   34133847   34183847
+NC_059180.1   4133847   41838470
 ```
 
 > **Tip**: To find the correct chromosome IDs:
