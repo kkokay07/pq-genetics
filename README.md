@@ -12,8 +12,7 @@ This repository contains instructions and scripts for analyzing population genet
   - F_UNI (Inbreeding based on correlation between uniting gametes)  
   - F_HOM (Homozygosity-based inbreeding)  
 
-- **Principal Component Analysis (PCA)** *(coming soon)*
-
+- **Principal Component Analysis (PCA)**
 - **Effective Population Size (Ne)**  *(coming soon)*
 
 - **Genetic Diversity Metrics**  *(coming soon)* 
