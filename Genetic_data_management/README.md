@@ -1,13 +1,12 @@
 ---
 
-###**PLINK Commands for Genetic Data Management**
+### PLINK Commands for Genetic Data Management
 
-### **1. Binary to `.map` and `.ped` Format**
+#### 1. Binary to `.map` and `.ped` Format
 **Input:** Binary file (`input.bed`, `input.bim`, `input.fam`)  
 **Output:** `.map` and `.ped` files  
 ```bash
 ./plink --noweb --bfile input --cow --nonfounders --allow-no-sex --recode --out output
-```
 
 ---
 
