@@ -63,7 +63,7 @@ NC_059180.1   4133847   41838470
 Run the following code to generate a TSV file with annotated features:
 
 ```bash
-python3 1.snp2annotation.py --anno input.txt --gff genomic.gff --output result.tsv
+python3 1.snp2feature.py --anno input.txt --gff genomic.gff --output result.tsv
 ```
 
 - **Input**: `input.txt` (tab-separated file with CHR, START, END columns).
