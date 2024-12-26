@@ -26,8 +26,8 @@ pip install pandas matplotlib seaborn tqdm
 
 
 Step 2: Run following code. This will give features such as exon, CDS, gene, lnc_RNA, mRNA, tRNA etc., 
-python3 snp2annotation.py --anno input.txt --gff genomic.gff --output result.tsv
+python3 1.snp2annotation.py --anno input.txt --gff genomic.gff --output result.tsv
 
 
 Step 3: Run following code. This will bar plot of feature distrubtion.png 
-python3 feature2visual.py --input result.tsv --output feature_distribution.png
+python3 2.feature2visual.py --input result.tsv --output feature_distribution.png
