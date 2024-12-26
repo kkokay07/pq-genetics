@@ -1,6 +1,6 @@
 ---
 
-## **PLINK Commands for Genetic Data Management**
+###**PLINK Commands for Genetic Data Management**
 
 ### **1. Binary to `.map` and `.ped` Format**
 **Input:** Binary file (`input.bed`, `input.bim`, `input.fam`)  
