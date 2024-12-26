@@ -1,7 +1,7 @@
 
 ---
 
-## **PLINK and VCFTools Commands for Genetic Data Formats**
+## **PLINK Commands for Genetic Data Management**
 
 ### **1. Binary to `.map` and `.ped` Format**  
 ```bash
