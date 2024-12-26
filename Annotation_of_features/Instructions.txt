@@ -1,0 +1,33 @@
+Pre-step 1: Downlod.gff file from NCBI.
+    Go to NCBI Genome Database:
+        Open NCBI Genome.
+
+    Search for Your Organism or Genome:
+        Use the search bar to enter the name of the organism, species, or genome of interest (e.g., Bos taurus, Escherichia coli).
+
+    Locate the Genome Assembly:
+        From the search results, find the genome assembly you need. Click on the Assembly name to view detailed information about that assembly.
+
+    Find the GFF File:
+        On the assembly page, scroll down to the section titled "Assembly and Annotation" or "Download Assemblies".
+        Look for links to annotation files. There should be a link for the GFF file (often labeled as .gff or .gff3).
+
+    Download the File:
+        Click on the GFF file link to start the download. Then unzip it and copy the .gff file to the directory of interest. It will typically include genome annotations such as genes, coding sequences, and regulatory features.
+
+Step 1: Prepare input.txt file (tab seperated), such that it should have three column heads as follows. Also note that, Chromosomes ID should match with reference assemby. For this just go to NCBI amd search your assembly of interest, then scroll down to a table where Chr numbers, ID and other information are given. From there you copy the Chr IDs.
+CHR	START	END
+NC_059179.1  34133847  34183847
+NC_059180.1  4133847  41838470
+
+
+Pre-step 2: Install necessary python libraries by running following code
+pip install pandas matplotlib seaborn tqdm
+
+
+Step 2: Run following code. This will give features such as exon, CDS, gene, lnc_RNA, mRNA, tRNA etc., 
+python3 snp2annotation.py --anno input.txt --gff genomic.gff --output result.tsv
+
+
+Step 3: Run following code. This will bar plot of feature distrubtion.png 
+python3 feature2visual.py --input result.tsv --output feature_distribution.png
