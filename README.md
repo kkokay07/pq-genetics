@@ -41,7 +41,7 @@ This repository contains instructions and scripts for analyzing population genet
   - Heritability (h²) estimates  
   - Genetic Correlations  
 
-- **Genome-Wide Association Studies (GWAS)** *(coming soon)*  
+- **Genome-Wide Association Studies (GWAS)**
 
 - **Runs of Homozygosity (ROH)** analysis *(coming soon)*  
   - ROH segments  
@@ -75,8 +75,6 @@ If you need any other population and quantitative genetics metrics which is not 
 If you want to support my research and free education initiatives, you can contribute any amount to the following UPI ID:  
 
 **8618102886@ybl**
-
-Thank you for your kindness and support!
 ---
 
 ## Author  
@@ -88,7 +86,7 @@ ICAR-Indian Institute of Agricultural Biotechnology, India.
 
 ---
 
-## Connect with Me  
+## Spy on me  
 [Scholar](https://scholar.google.com/citations?hl=en&user=0dQ7Sf8AAAAJ&view_op=list_works&sortby=pubdate)
 [ResearchGate](https://www.researchgate.net/profile/Kanaka-K-K/research)
 [Website](https://iiab.icar.gov.in/staff/dr-kanaka-k-k/)
