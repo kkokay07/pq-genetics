@@ -1,6 +1,6 @@
 # pq-genetics  
 **Repository for Population Genetics and Quantitative Genetics Metrics Implementation and Visualization**  
-Dedicated to [**G.J.Mendel**](https://link.springer.com/article/10.3103/S0095452723050067)
+Dedicated to [**G.J.Mendel**](https://link.springer.com/article/10.3103/S0095452723050067) and [**D.S.Falconer**](https://www.sciencedirect.com/science/article/pii/S2214662823000075)
 
 ---
 
