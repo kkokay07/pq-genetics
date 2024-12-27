@@ -1,19 +1,92 @@
-Pre-step 1 (optional): Install PLINK
-- Visit PLINK website.
-- Download Stable (beta 7.7) (Available as of December 25, 2024).
-- Extract the downloaded file using: (Note: Replace bla_bla_bla with the specific file name.)
-unzip plink_bla_bla_bla.zip
-- Add PLINK to your PATH using:(Note: This step is optional. However, adding PLINK to your PATH allows access from any directory.)
-export PATH=$PATH:/path/to/plink
+# Principal Component Analysis (PCA) Pipeline
 
+A streamlined workflow for performing and visualizing Principal Component Analysis using PLINK and Python.
 
-Step 1: Run PLINK command in the terminal. This will generate result.eigenvec and result.eigenval files. (Change the species flag --cow if your data is not for cattle. Refer to PLINK documentation for other options.)
-plink --cow --bfile input_file --pca --out result
+## Table of Contents
+- [Installation](#installation)
+  - [PLINK Setup](#plink-setup)
+  - [Python Dependencies](#python-dependencies)
+- [Usage](#usage)
+  - [Generate PCA](#generate-pca)
+  - [Visualize Results](#visualize-results)
+- [Output Files](#output-files)
+- [Additional Notes](#additional-notes)
 
+## Installation
 
-Pre-step 2 (optional): Install Necessary Python Libraries
+### PLINK Setup
+
+1. Download PLINK:
+   - Visit the [PLINK website](https://www.cog-genomics.org/plink/)
+   - Download Stable (beta 7.7) version
+
+2. Extract the downloaded file:
+   ```bash
+   unzip plink_bla_bla_bla.zip
+   ```
+   Note: Replace `plink_bla_bla_bla` with your downloaded file name
+
+3. Add PLINK to PATH (optional but recommended):
+   ```bash
+   export PATH=$PATH:/path/to/plink
+   ```
+   Replace `/path/to/plink` with your PLINK binary location
+
+### Python Dependencies
+
+Install required Python libraries:
+```bash
 pip install pandas matplotlib numpy scipy
+```
 
+## Usage
 
-Step 2: Run the following command to visualize the PCA results. Specify the populations for which you need ellipses. You can mention any no. of populations present in your data:
-python3 pca_visualization.py --eigenvec result.eigenvec --eigenval result.eigenval --fam input_file.fam --ellipse-pops pop1 pop2 --dpi 600
+### Generate PCA
+
+Run PLINK to perform PCA analysis:
+```bash
+plink --cow --bfile input_file --pca --out result
+```
+
+Note: Replace `--cow` with appropriate species flag if not working with cattle data. Check PLINK documentation for other species options.
+
+### Visualize Results
+
+Create PCA visualization with population ellipses:
+```bash
+python3 pca_visualization.py \
+    --eigenvec result.eigenvec \
+    --eigenval result.eigenval \
+    --fam input_file.fam \
+    --ellipse-pops pop1 pop2 \
+    --dpi 600
+```
+
+Parameters:
+- `--eigenvec`: PLINK eigenvalues file
+- `--eigenval`: PLINK eigenvectors file
+- `--fam`: PLINK family file
+- `--ellipse-pops`: Space-separated list of populations for ellipse drawing
+- `--dpi`: Output image resolution (default: 600)
+
+## Output Files
+
+1. PLINK PCA Output:
+   - `result.eigenvec`: Contains principal components
+   - `result.eigenval`: Contains eigenvalues
+
+2. Visualization:
+   - High-resolution PCA plot (600 DPI)
+   - Population-specific ellipses
+   - Variance explained by each component
+
+## Additional Notes
+
+- Ensure input files are in PLINK binary format (`.bed`, `.bim`, `.fam`)
+- You can specify any number of populations in `--ellipse-pops`
+- Higher DPI values will produce larger file sizes
+- Check PLINK documentation for species-specific flags
+
+---
+
+🥜 It's a peanut!
