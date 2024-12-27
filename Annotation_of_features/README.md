@@ -1,99 +1,106 @@
----
+# Genome Annotation Pipeline
 
-# README: Genome Annotation Pipeline
+A Python-based pipeline for annotating genomic regions of interest using NCBI Genome Database GFF files. The pipeline provides feature annotations and visualization of feature distributions.
+
+## Table of Contents
+- [Overview](#overview)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Data Preparation](#data-preparation)
+- [Usage](#usage)
+- [Outputs](#outputs)
+- [Notes](#notes)
 
 ## Overview
-This pipeline annotates genomic regions of interest using a `.gff` file downloaded from the NCBI Genome Database. It outputs feature annotations and a bar plot showing the distribution of features.
 
----
+This pipeline processes genomic regions of interest using GFF annotation files from NCBI. It generates:
+- Feature annotations in TSV format
+- Visualization of feature distribution as a bar plot
 
-## Pre-Steps
+## Prerequisites
 
-### Pre-Step 1: Download the `.gff` File from NCBI
-1. **Go to NCBI Genome Database**:
-   - Open [NCBI Genome Database](https://www.ncbi.nlm.nih.gov/genome/).
+- Python 3.x
+- Internet connection (for downloading GFF files)
+- Access to NCBI Genome Database
 
-2. **Search for Your Organism or Genome**:
-   - Use the search bar to find your genome of interest (e.g., *Bos taurus*, *Escherichia coli*).
+## Installation
 
-3. **Locate the Genome Assembly**:
-   - From the search results, click on the genome assembly name.
-
-4. **Find and Download the `.gff` File**:
-   - Scroll to the **"Assembly and Annotation"** or **"Download Assemblies"** section.
-   - Download the `.gff` or `.gff3` file.
-
-5. **Prepare the `.gff` File**:
-   - Unzip the downloaded file.
-   - Place it in your working directory.
-
----
-
-### Pre-Step 2: Install Required Python Libraries
-
-Run the following command to install the necessary Python libraries:
+Install required Python libraries:
 
 ```bash
 pip install pandas matplotlib seaborn tqdm
 ```
 
----
+## Data Preparation
 
-## Step-by-Step Instructions
+### 1. Download GFF File from NCBI
 
-### Step 1: Prepare the `input.txt` File
-1. Create a **tab-separated** file named `input.txt` with the following structure:
-   - Columns: `CHR`, `START`, `END`.
-   - Ensure chromosome IDs match the reference assembly from NCBI.
+1. Visit the [NCBI Genome Database](https://www.ncbi.nlm.nih.gov/genome/)
+2. Search for your organism (e.g., *Bos taurus*, *Escherichia coli*)
+3. Navigate to the genome assembly page
+4. Download the GFF/GFF3 file from the "Assembly and Annotation" section
+5. Extract the downloaded file to your working directory
 
-#### Example `input.txt`:
+### 2. Prepare Input File
+
+Create a tab-separated file named `input.txt` with the following columns:
+- CHR (Chromosome ID)
+- START (Start position)
+- END (End position)
+
+Example `input.txt`:
 ```
 CHR	START	END
 NC_059179.1   34133847   34183847
 NC_059180.1   4133847   41838470
 ```
 
-> **Tip**: To find the correct chromosome IDs:
-> - Search for your genome assembly on NCBI.
-> - Scroll to the table containing chromosome numbers and IDs.
+> **💡 Tip**: Find correct chromosome IDs in the NCBI genome assembly information table.
 
----
+## Usage
 
-### Step 2: Annotate Genomic Regions
-Run the following code to generate a TSV file with annotated features:
+### 1. Feature Annotation
+
+Generate feature annotations:
 
 ```bash
 python3 1.snp2feature.py --anno input.txt --gff genomic.gff --output result.tsv
 ```
 
-- **Input**: `input.txt` (tab-separated file with CHR, START, END columns).
-- **GFF File**: `genomic.gff` (downloaded in Pre-Step 1).
-- **Output**: `result.tsv` (feature annotations).
+Parameters:
+- `--anno`: Input file with genomic regions
+- `--gff`: GFF file from NCBI
+- `--output`: Output TSV file name
 
----
+### 2. Visualization
 
-### Step 3: Visualize Feature Distribution
-Generate a bar plot of feature distribution using the following code:
+Create feature distribution plot:
 
 ```bash
 python3 2.feature2visual.py --input result.tsv --output feature_distribution.png
 ```
 
-- **Input**: `result.tsv` (output from Step 2).
-- **Output**: `feature_distribution.png` (bar plot of feature distribution).
+Parameters:
+- `--input`: Feature annotation file (output from step 1)
+- `--output`: Output image file name
 
----
+## Outputs
 
-## Expected Outputs
+1. **Feature Annotations** (`result.tsv`)
+   - Tab-separated file containing genomic features
+   - Includes features like: exon, CDS, gene, lnc_RNA, mRNA, tRNA
 
-1. **Annotation File (`result.tsv`)**: Tabular file containing genomic features such as `exon`, `CDS`, `gene`, `lnc_RNA`, `mRNA`, `tRNA`, etc.
-2. **Visualization (`feature_distribution.png`)**: Bar plot showing the distribution of features.
-
----
+2. **Feature Distribution** (`feature_distribution.png`)
+   - Bar plot visualization
+   - Shows distribution of different feature types
 
 ## Notes
-- Ensure all paths and filenames match your working directory setup.
-- Verify Python version (`Python 3.x`) and library compatibility.
+
+- Ensure chromosome IDs in your input file match the reference assembly
+- Verify file paths and permissions in your working directory
+- Check Python version compatibility before running
+- Keep GFF and input files in the same directory as scripts
 
 ---
-### It's a peanut!
+
+🥜 It's a peanut!
