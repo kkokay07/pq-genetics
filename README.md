@@ -58,7 +58,7 @@
    git clone https://github.com/kkokay07/pq-genetics.git
    ```
 2. Navigate to your analysis of interest
-3. Follow the Instructions.txt - it's as easy as eating peanuts! 🥜
+3. Follow the README.md - it's as easy as eating peanuts! 🥜
 
 ## 💡 Need Something Special?
 Can't find what you're looking for? No worries - it's just a peanut! 🥜
@@ -66,7 +66,6 @@ Can't find what you're looking for? No worries - it's just a peanut! 🥜
 Drop me a line at **kkokay07@gmail.com** and I'll help you crack it:
 - Custom metrics? Just ask!
 - Special analyses? I've got you!
-- Unique visualizations? Let's make it happen!
 
 ## 🤝 Support Open Science
 If you find this toolkit helpful and want to support open science and free education, consider contributing to:  
