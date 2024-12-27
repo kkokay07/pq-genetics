@@ -1,90 +1,84 @@
-## **GWAS Analysis Using GCTA**
+# GWAS Analysis Pipeline Using GCTA
 
-**Link to download and install GCTA:** https://yanglab.westlake.edu.cn/software/gcta/#Download
+A comprehensive pipeline for conducting Genome-Wide Association Studies (GWAS) using GCTA software, from data preparation to result visualization.
 
-### **Step 1: Check the Distribution of a Trait**
-Quantitative traits should typically follow a normal distribution. Use the following command to visualize the distribution:
+## Table of Contents
+- [Installation](#installation)
+- [Pipeline Overview](#pipeline-overview)
+- [Data Preparation](#data-preparation)
+  - [Phenotype Processing](#phenotype-processing)
+  - [Covariate Preparation](#covariate-preparation)
+- [Analysis Steps](#analysis-steps)
+- [Visualization](#visualization)
+- [Annotation](#annotation)
 
-```bash
-python pheno_distribution.py phenotype.txt --out my_analysis
-```
+## Installation
 
-**Format of phenotype.txt:**
+1. Download and install GCTA from the [official website](https://yanglab.westlake.edu.cn/software/gcta/#Download)
+2. Install required Python libraries:
+   ```bash
+   pip install numpy pandas matplotlib seaborn scipy statsmodels
+   ```
 
-| FID  | IID  | Trait1 | Trait2 |
-|------|------|--------|--------|
-| 1    | 1    | 23.5   | -9     |
-| 2    | 2    | 45.2   | 32.1   |
-| 3    | 3    | -9     | 28.4   |
-| 4    | 4    | 28.7   | 35.2   |
+## Pipeline Overview
 
-### **Step 2: Normalize Non-Normal Traits**
-If some traits do not follow a normal distribution, normalize them using the following command:
+1. Phenotype distribution analysis
+2. Data normalization
+3. Sample selection
+4. Covariate analysis
+5. GRM creation
+6. Population structure analysis
+7. GWAS execution
+8. Result visualization
+9. Variant annotation
 
-```bash
-python pheno_normalizer.py input.txt --out normalized_output.txt
-```
+## Data Preparation
 
-**Format of input.txt:**
+### Phenotype Processing
 
-| FID  | IID  | Phenotype |
-|------|------|-----------|
-| 1    | 1    | 23.5      |
-| 2    | 2    | 45.2      |
-| 3    | 3    | 32.1      |
-| 4    | 4    | 28.7      |
+1. **Check Trait Distribution**
+   ```bash
+   python pheno_distribution.py phenotype.txt --out my_analysis
+   ```
 
-### **Step 3: Select Subset of Individuals**
-To select a subset of individuals when traits and fixed factors are present in separate files, use the following command:
+   Required format for `phenotype.txt`:
+   | FID  | IID  | Trait1 | Trait2 |
+   |------|------|--------|--------|
+   | 1    | 1    | 23.5   | -9     |
+   | 2    | 2    | 45.2   | 32.1   |
 
-```bash
-awk 'NR==FNR {a[$1]=$2; next} $1 in a {print $0, a[$1]}' gt.txt pt.txt > trait_vlookup.txt
-```
+2. **Normalize Non-Normal Traits**
+   ```bash
+   python pheno_normalizer.py input.txt --out normalized_output.txt
+   ```
 
-Copy the output into an Excel sheet, then prepare a `phenotype.txt` file with the following format:
+### Covariate Preparation
 
-| FID           | IID           | Trait |
-|---------------|---------------|-------|
-| 340021495092  | 340021495092  | 411   |
-| 340099458491  | 340099458491  | 238   |
-| 340099452002  | 340099452002  | 104   |
-| 340014504815  | 340014504815  | 147   |
+1. **Create Covariates File**
+   
+   Format for `covariates.txt`:
+   | FID  | IID  | F1 | F2 | F3 | F4 | F5 |
+   |------|------|----|----|----|----|----|
+   | 1    | 1    | 1  | 5  | 5  | 11 | 175|
 
-### **Step 4: Prepare Covariates**
-Create a `covariates.txt` file containing all covariates:
+2. **Select Important Factors**
+   ```bash
+   python3 fixed_factor_checker.py
+   ```
 
-| FID           | IID           | F1 | F2 | F3 | F4 | F5 |
-|---------------|---------------|----|----|----|----|----|
-| 340021495092  | 340021495092  | 1  | 5  | 5  | 11 | 175 |
-| 340099458491  | 340099458491  | 1  | 3  | 7  | 9  | 73  |
-| 340099452002  | 340099452002  | 1  | 3  | 7  | 9  | 142 |
-| 340014504815  | 340014504815  | 1  | 3  | 8  | 10 | 140 |
+   Selection criteria:
+   - R² > 0.05
+   - Correlation < 0.7
+   - VIF < 10
 
-### **Step 5: Identify Relevant Fixed Factors**
-Run the following script to identify important fixed factors for a specific trait:
+## Analysis Steps
 
-```bash
-python3 fixed_factor_checker.py
-```
-
-This will open a popup menu where you can select the phenotype and covariate files.
-
-**Guidelines for Factor Selection:**
-1. Include factors with R² > 0.05.
-2. Remove or combine highly correlated factors (correlation > 0.7).
-3. Remove factors with VIF > 10 to avoid multicollinearity issues.
-
-Prepare a new covariate file with only the important factors.
-
-### **Step 6: Create the GRM**
-Use all individuals in the PLINK binary file to create a genetic relationship matrix (GRM):
-
+### 1. Create Genetic Relationship Matrix (GRM)
 ```bash
 gcta64 --bfile your_data --make-grm --out myGRM --thread-num 10
 ```
 
-### **Step 7: Subset the GRM to Phenotyped Individuals**
-
+### 2. Subset GRM
 ```bash
 gcta64 --grm myGRM \
     --keep ind.txt \
@@ -92,30 +86,19 @@ gcta64 --grm myGRM \
     --out pop1_grm_subset
 ```
 
-### **Step 8: Perform PCA**
-Create principal components (PCs) from the GRM:
-
+### 3. Principal Component Analysis
 ```bash
 gcta64 --grm your_grm \
-    --pca 20 \         # Calculate first 20 PCs
+    --pca 20 \
     --out your_pca
 ```
 
-Evaluate which PCs to retain:
-
+Evaluate PCs:
 ```bash
 python pc_decider.py your_pca.eigenval
 ```
 
-Select only the important PCs:
-
-```bash
-cut -f1-$((N+2)) your_pca.eigenvec > your_pca_significant.eigenvec
-```
-
-### **Step 9: Run GWAS**
-Run the GWAS, adjusting for fixed factors, genetic relationships, and population structure:
-
+### 4. GWAS Execution
 ```bash
 gcta64 --mlma --bfile mehsana \
     --grm sp_grm_subset \
@@ -125,27 +108,32 @@ gcta64 --mlma --bfile mehsana \
     --out trait_gwas --thread-num 4
 ```
 
-### **Step 10: Visualize Results**
-Generate a Manhattan plot and find significant associations:
+## Visualization
 
-```bash
-python3 gwas_analyser.py my_gwas.mlma --out my --snps 53913
-```
+1. **Generate Manhattan Plot**
+   ```bash
+   python3 gwas_analyser.py my_gwas.mlma --out my --snps 53913
+   ```
 
-### **Step 11: Estimate Variation Explained by Top 1% SNPs**
+2. **Estimate Top SNP Variation**
+   ```bash
+   python3 var_by_1percent_snp.py
+   ```
 
-```bash
-python3 var_by_1percent_snp.py
-```
+## Annotation
 
-This script will detect all `.mlma` files in the folder and prompt for trait names.
+For annotating significant variants:
 
-### **Step 12: Annotation**
-Use the following GitHub repository for annotation:
+1. Visit the [Annotation Repository](https://github.com/kkokay07/pq-genetics/tree/main/Annotation_of_features)
+2. Follow repository instructions for feature annotation
 
-[Annotation of Features](https://github.com/kkokay07/pq-genetics/tree/main/Annotation_of_features)
+## Notes
 
-Follow the instructions provided in the repository.
+- Ensure consistent sample IDs across all files
+- Back up data before normalization
+- Monitor memory usage during GRM creation
+- Consider parallelization for large datasets
 
 ---
-### It's a peanut!
+
+🥜 It's a peanut!
