@@ -96,3 +96,4 @@ python3 2.feature2visual.py --input result.tsv --output feature_distribution.png
 - Verify Python version (`Python 3.x`) and library compatibility.
 
 ---
+### It's a peanut!
