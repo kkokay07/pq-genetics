@@ -38,7 +38,7 @@ python pheno_normalizer.py input.txt --out normalized_output.txt
 To select a subset of individuals when traits and fixed factors are present in separate files, use the following command:
 
 ```bash
-awk 'NR==FNR {a[$1]=$2; next} $1 in a {print $0, a[$1]}' gt.txt pt.txt > SP_vlookup.txt
+awk 'NR==FNR {a[$1]=$2; next} $1 in a {print $0, a[$1]}' gt.txt pt.txt > trait_vlookup.txt
 ```
 
 Copy the output into an Excel sheet, then prepare a `phenotype.txt` file with the following format:
@@ -104,7 +104,7 @@ gcta64 --grm your_grm \
 Evaluate which PCs to retain:
 
 ```bash
-python pc_analyzer.py your_pca.eigenval
+python pc_decider.py your_pca.eigenval
 ```
 
 Select only the important PCs:
@@ -119,10 +119,10 @@ Run the GWAS, adjusting for fixed factors, genetic relationships, and population
 ```bash
 gcta64 --mlma --bfile mehsana \
     --grm sp_grm_subset \
-    --pheno SP_vlookup.txt \
+    --pheno trait.txt \
     --qcovar mehsana_pca_10.eigenvec \
-    --covar sp_covar.txt \
-    --out sp_gwas --thread-num 4
+    --covar covar.txt \
+    --out trait_gwas --thread-num 4
 ```
 
 ### **Step 10: Visualize Results**
