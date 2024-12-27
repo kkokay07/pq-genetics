@@ -116,5 +116,6 @@ file2.ped file2.map
 file3.ped file3.map
 file4.bed file4.bim file4.fam
 ```
+### It's a peanut!
 
 ---
