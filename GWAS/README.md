@@ -148,4 +148,4 @@ Use the following GitHub repository for annotation:
 Follow the instructions provided in the repository.
 
 ---
-Thats all!
+### It's a peanut!
