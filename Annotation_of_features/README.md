@@ -64,7 +64,7 @@ NC_059180.1   4133847   41838470
 Generate feature annotations:
 
 ```bash
-python3 1.snp2feature.py --anno input.txt --gff genomic.gff --output result.tsv
+python 1.snp2feature.py --anno imput.txt --gff reference.gff --output result.tsv
 ```
 
 Parameters:
@@ -77,12 +77,8 @@ Parameters:
 Create feature distribution plot:
 
 ```bash
-python3 2.feature2visual.py --input result.tsv --output feature_distribution.png
+python3 2.feature2visual.py --input input.txt --gff reference.gff --output result --trait "trait name" --dpi 600
 ```
-
-Parameters:
-- `--input`: Feature annotation file (output from step 1)
-- `--output`: Output image file name
 
 ## Outputs
 
@@ -90,8 +86,8 @@ Parameters:
    - Tab-separated file containing genomic features
    - Includes features like: exon, CDS, gene, lnc_RNA, mRNA, tRNA
 
-2. **Feature Distribution** (`feature_distribution.png`)
-   - Bar plot visualization
+2. **Feature Distribution** 
+   - Bar plot and Pie chart plot visualization
    - Shows distribution of different feature types
 
 ## Notes
