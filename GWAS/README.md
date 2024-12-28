@@ -85,7 +85,13 @@ gcta64 --grm myGRM \
     --make-grm \
     --out pop1_grm_subset
 ```
-
+   Format for `ind.txt`:
+   | FID  | IID  |
+   |------|------|
+   | 1    | 1    |
+   | 1    | 2    |
+   | .    | .    |
+   
 ### 3. Principal Component Analysis
 ```bash
 gcta64 --grm your_grm \
@@ -107,6 +113,7 @@ gcta64 --mlma --bfile mehsana \
     --covar covar.txt \
     --out trait_gwas --thread-num 4
 ```
+> If no covariates are there, simply remove --covar covar.txt \
 
 ## Visualization
 
