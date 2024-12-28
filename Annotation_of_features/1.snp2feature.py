@@ -1,59 +1,53 @@
 import pandas as pd
+import subprocess
 from argparse import ArgumentParser
-from tqdm import tqdm
 
-def read_regions(anno_file):
-    """Read the annotation file containing regions of interest"""
-    return pd.read_csv(anno_file, sep='\t')
+def parse_attributes(attr_string):
+    """Parse GFF attributes into a dictionary"""
+    attrs = {}
+    for item in attr_string.split(';'):
+        if '=' in item:
+            key, value = item.split('=', 1)
+            attrs[key] = value
+    return attrs
 
-def parse_gff_feature(line):
-    """Parse a GFF line to extract all features"""
+def parse_gff_line(line):
+    """Parse a GFF line with extracted feature names and IDs"""
     if line.startswith('#'):
         return None
     
     fields = line.strip().split('\t')
     if len(fields) < 9:
         return None
-        
-    chrom = fields[0]
-    feature_source = fields[1]
-    feature_type = fields[2]
-    start = int(fields[3])
-    end = int(fields[4])
-    score = fields[5]
-    strand = fields[6]
-    phase = fields[7]
     
     # Parse attributes
-    attrs = {}
-    if fields[8] != '.':
-        for item in fields[8].split(';'):
-            if '=' in item:
-                key, value = item.split('=', 1)
-                attrs[key] = value
+    attrs = parse_attributes(fields[8])
+    
+    # Extract gene name and ID
+    gene_name = attrs.get('Name', '')
+    gene_id = attrs.get('Dbxref', '').split(',')[0] if 'Dbxref' in attrs else ''
     
     return {
-        'chr': chrom,
-        'source': feature_source,
-        'type': feature_type,
-        'start': start,
-        'end': end,
-        'score': score,
-        'strand': strand,
-        'phase': phase,
-        'id': attrs.get('ID', 'Unknown'),
-        'name': attrs.get('Name', attrs.get('ID', 'Unknown')),
-        'attributes': fields[8]
+        'chr': fields[0],
+        'start': fields[3],
+        'end': fields[4],
+        'feature_type': fields[2],
+        'feature_source': fields[1],
+        'feature_strand': fields[6],
+        'feature_score': fields[5],
+        'feature_phase': fields[7],
+        'feature_name': gene_name,
+        'feature_id': gene_id,
+        'full_attributes': fields[8]
     }
 
-def check_overlap(region, feature):
-    """Check if a feature overlaps with a region"""
-    return (region['CHR'] == feature['chr'] and 
-            region['START'] <= feature['end'] and 
-            region['END'] >= feature['start'])
+def convert_to_bed(df, output_file):
+    """Convert annotation dataframe to BED format"""
+    bed_df = df[['CHR', 'START', 'END']]
+    bed_df.to_csv(output_file, sep='\t', header=False, index=False)
 
 def main():
-    parser = ArgumentParser(description='Find genomic features in regions')
+    parser = ArgumentParser(description='Find genomic features in regions using bedtools')
     parser.add_argument('--anno', required=True, help='Input annotation file (CHR, START, END)')
     parser.add_argument('--gff', required=True, help='Reference GFF file')
     parser.add_argument('--output', required=True, help='Output file name')
@@ -62,66 +56,46 @@ def main():
     
     # Read regions file
     print("Reading regions file...")
-    regions = read_regions(args.anno)
-    print("\nInput regions:")
-    print(regions)
+    regions = pd.read_csv(args.anno, sep='\t')
     
-    # Process GFF file and find overlaps
-    print("\nFinding overlapping features...")
-    results = []
+    # Convert regions to BED format
+    convert_to_bed(regions, "regions.bed")
     
-    # Main processing
-    total_lines = sum(1 for _ in open(args.gff))
-    processed_features = 0
+    # Run bedtools intersect
+    print("\nRunning bedtools intersect...")
+    cmd = f"bedtools intersect -a {args.gff} -b regions.bed -wa"
     
-    with open(args.gff) as f:
-        for line in tqdm(f, total=total_lines, desc="Processing GFF file"):
-            feature = parse_gff_feature(line)
-            if feature is None:
-                continue
-                
-            processed_features += 1
-            # Check each region for overlap
-            for _, region in regions.iterrows():
-                if check_overlap(region, feature):
-                    results.append({
-                        'region_chr': region['CHR'],
-                        'region_start': region['START'],
-                        'region_end': region['END'],
-                        'feature_type': feature['type'],
-                        'feature_source': feature['source'],
-                        'feature_id': feature['id'],
-                        'feature_name': feature['name'],
-                        'feature_start': feature['start'],
-                        'feature_end': feature['end'],
-                        'feature_strand': feature['strand'],
-                        'feature_score': feature['score'],
-                        'feature_phase': feature['phase'],
-                        'feature_attributes': feature['attributes']
-                    })
-    
-    print(f"\nProcessed {processed_features} features from GFF file")
-    
-    # Create output dataframe and save
-    results_df = pd.DataFrame(results)
-    if not results_df.empty:
-        # Sort by feature type and position
-        results_df = results_df.sort_values(['region_chr', 'feature_type', 'feature_start'])
+    try:
+        result = subprocess.run(cmd, shell=True, check=True, capture_output=True, text=True)
+        intersections = result.stdout.strip().split('\n')
         
-        # Save to CSV
-        results_df.to_csv(args.output, index=False, sep='\t')
+        results = []
+        for line in intersections:
+            if line:
+                gff_fields = parse_gff_line(line)
+                if gff_fields:
+                    results.append(gff_fields)
         
-        # Print summary
-        print(f"\nResults written to {args.output}")
-        print(f"Found {len(results_df)} feature overlaps across {len(regions)} regions")
+        # Create output dataframe
+        results_df = pd.DataFrame(results)
+        if not results_df.empty:
+            # Reorder columns to put feature_name and feature_id more prominently
+            cols = ['chr', 'start', 'end', 'feature_type', 'feature_name', 'feature_id', 
+                   'feature_source', 'feature_strand', 'feature_score', 'feature_phase', 
+                   'full_attributes']
+            results_df = results_df[cols]
+            
+            results_df.to_csv(args.output, sep='\t', index=False)
+            print(f"\nResults written to {args.output}")
+            print(f"Found {len(results_df)} intersecting features")
+        else:
+            print("\nNo intersecting features found")
+            
+    except subprocess.CalledProcessError as e:
+        print(f"Error running bedtools: {e}")
         
-        # Show feature type breakdown
-        print("\nFeature type breakdown:")
-        type_counts = results_df['feature_type'].value_counts()
-        for feat_type, count in type_counts.items():
-            print(f"{feat_type}: {count}")
-    else:
-        print("\nNo overlapping features found in the specified regions")
+    # Cleanup
+    subprocess.run("rm regions.bed", shell=True)
 
 if __name__ == "__main__":
     main()
