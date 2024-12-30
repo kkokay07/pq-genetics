@@ -1,6 +1,6 @@
 # GWAS Analysis Pipeline Using GCTA
 
->[GWAS demo is available here](https://github.com/kkokay07/GenomicClass_on_Cloud/tree/master/GWAS)
+>[Begginers alert!:GWAS demo is available here](https://github.com/kkokay07/GenomicClass_on_Cloud/tree/master/GWAS)
 
 A comprehensive pipeline for conducting Genome-Wide Association Studies (GWAS) using GCTA software, from data preparation to result visualization.
 
