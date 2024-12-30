@@ -3,8 +3,8 @@
 > When life gives you big challenges, just say "It's a peanut! 🥜" and watch them become as small as one!
 
 **A comprehensive toolkit for Population & Quantitative Genetics Analysis**  
-*Dedicated to the giants whose shoulders we stand on:*  
-[**G.J. Mendel**](https://link.springer.com/article/10.3103/S0095452723050067) and [**D.S. Falconer**](https://www.sciencedirect.com/science/article/pii/S2214662823000075)
+>*Dedicated to the giants whose shoulders we stand on:*  
+>[**G.J. Mendel**](https://link.springer.com/article/10.3103/S0095452723050067) and [**D.S. Falconer**](https://www.sciencedirect.com/science/article/pii/S2214662823000075)
 
 ## 🔍 What's Inside?
 
@@ -80,10 +80,8 @@ School of Bioinformatics
 > Be like IIAB!: IIAB is like yogic center where all the sciences (Plant, Animal, Aquatic,Mibrobiology, IT) meet to address emerging issues in food production.
 
 ## 🔎 Spy on me
-- [Google Scholar](https://scholar.google.com/citations?hl=en&user=0dQ7Sf8AAAAJ&view_op=list_works&sortby=pubdate)
-- [GitHuB: kkokay07](https://github.com/kkokay07)
-- [ResearchGate](https://www.researchgate.net/profile/Kanaka-K-K/research)
-- [Institute Website](https://iiab.icar.gov.in/staff/dr-kanaka-k-k/)
+>[Google Scholar](https://scholar.google.com/citations?hl=en&user=0dQ7Sf8AAAAJ&view_op=list_works&sortby=pubdate); [GitHub](https://github.com/kkokay07); [ResearchGate](https://www.researchgate.net/profile/Kanaka-K-K/research); [Institute Website](https://iiab.icar.gov.in/staff/dr-kanaka-k-k/)
+
 ---
 
 > Remember: Every analysis is just a peanut waiting to be cracked! 🥜
