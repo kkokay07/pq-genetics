@@ -77,8 +77,7 @@ If you find this toolkit helpful and want to support open science and free educa
 Scientist  
 School of Bioinformatics  
 [ICAR-Indian Institute of Agricultural Biotechnology, Ranchi](https://iiab.icar.gov.in/)
-> Be like IIAB!: IIAB is like yogic center where all the sciences (Plant, Animal, Aquatic,Mibrobiology, IT) meet to address emerging issues in food production.
-> [Know more about ICAR-IIAB through Annual Report](https://www.researchgate.net/publication/379512649_ICAR-IIAB_Annual_Report-_2023)
+> [Be like IIAB!:](https://www.researchgate.net/publication/379512649_ICAR-IIAB_Annual_Report-_2023) IIAB is like yogic center where all the sciences (Plant, Animal, Aquatic,Mibrobiology, IT) meet to address emerging issues in food production.
 
 ## 🔎 Spy on me
 - [Google Scholar](https://scholar.google.com/citations?hl=en&user=0dQ7Sf8AAAAJ&view_op=list_works&sortby=pubdate)
