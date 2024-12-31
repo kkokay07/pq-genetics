@@ -1,7 +1,6 @@
-# GONE installation and Ne estimation:
+# GONE Installation and Ne Estimation Guide
 
-```markdown
-# GONE (Genomic Estimates of Ne)
+## GONE (Genomic Estimates of Ne)
 
 GONE calculates effective population size (Ne) trajectories over ~100-200 generations using linkage disequilibrium from genomic markers.
 
@@ -61,7 +60,7 @@ threads=-99          # Number of threads (-99=all)
 ## Citation
 
 Santiago, E., Novo, I., Pardiñas, A. F. Saura, M., Wang, J., Caballero, A. (2020). Recent demographic history inferred by high-resolution analysis of linkage disequilibrium. Molecular Biology and Evolution 37: 3642–3653.
-```
+
 ## 👨‍🔬 About the Author
 
 **Dr. Kanaka K. K., PhD, ARS**  
