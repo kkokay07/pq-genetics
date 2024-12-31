@@ -19,7 +19,7 @@ The datasets are available in two PLINK formats:
 
 These example datasets can be used for practicing:
 - [Population and Quantitative genetic analyses](https://github.com/kkokay07/pq-genetics)
-- [Ready to run in CLOUD](https://github.com/kkokay07/GenomicClass_on_Cloud) Note: You need to modify the name of the file in colab notebook and some notebooks may not serve the purpose of the data you upload
+- [Ready to run in CLOUD.](https://github.com/kkokay07/GenomicClass_on_Cloud) Note: You need to modify the name of the file in colab notebook and some notebooks may not serve the purpose of the data you upload
 
 ## 👨‍🔬 About the Author
 
