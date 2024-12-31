@@ -1,7 +1,7 @@
 # Example Genetic Data for Practice
 >These datasets serve as excellent practice material for learning population and quantitative genetics concepts.
 ## Download Links
-- [NGS (Next Generation Student) digital library in Google Classroom links:](https://classroom.google.com/u/0/w/NzIyMTI0MzIwNzQ5/tc/NzQwMDEyMDA5MjE1)
+- [NGS (Next Generation Student) digital library in Google Classroom](https://classroom.google.com/u/0/w/NzIyMTI0MzIwNzQ5/tc/NzQwMDEyMDA5MjE1)
 - OR download from repective website
   1. [WIDDE](http://widde.toulouse.inra.fr/widde/)
   2. [DRYAD](https://datadryad.org/search)
