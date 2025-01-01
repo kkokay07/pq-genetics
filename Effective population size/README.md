@@ -56,7 +56,8 @@ hc=0.05              # Maximum recombination fraction
 REPS=40              # Internal replicates
 threads=-99          # Number of threads (-99=all)
 ```
-
+## Visualization
+[Click on me to take you to visualization guide](https://github.com/kkokay07/Pyplot-Hub/tree/main/Line%20plot)
 ## Citation
 
 Santiago, E., Novo, I., Pardiñas, A. F. Saura, M., Wang, J., Caballero, A. (2020). Recent demographic history inferred by high-resolution analysis of linkage disequilibrium. Molecular Biology and Evolution 37: 3642–3653.
