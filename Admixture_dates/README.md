@@ -56,7 +56,7 @@ bash /home/hp/Documents/Admixture_date/Chromopainter/All_sample_run_copy/run_cop
 
 **Step 7: Sum the chunk lengths across all the chromosomes** (change no. of chr at @chromovec in chromopainteroutsum_allchr.pl)
 ```bash
-perl /home/hp/Documents/Admixture_date/Chromopainter/All_sample_run_copy/chromopainteroutsum_allchr.pl chr _DonorvALL.chunklengths.out
+perl /home/hp/Documents/Admixture_date/Chromopainter/All_sample_run_copy/chromopainteroutsum_allchr.pl cdtcp _DonorvALL.chunklengths.out
 ```
 **Step 8: Generating the painting files *(Remove R and corresponding breeds in POPSURR.txt, EXCEPT for CHA, which is our target)*** (looping command saved as run_step7.sh)
 ```bash
@@ -66,5 +66,10 @@ Step 9: Compile fastGLOBETROTTER after downloading. **(Only once. No need to rep
 ```bash
 R CMD SHLIB -o /home/hp/Documents/Admixture_date/Chromopainter/All_sample_run_copy/fastGLOBETROTTERCompanion.so /home/hp/Documents/Admixture_date/Chromopainter/All_sample_run_copy/fastGLOBETROTTERCompanion.c -lz
 ```
+**Step 10: Run fastGLOBETROTTER** (copy all the fastGlobetrotter.R and other related files to your working directory)
+```bash
+R < fastGLOBETROTTER.R paramfile.txt samplefile.txt recomfile.txt --no-save > CHAfGprop.fastGT.out
+```
+>Note: Refer files for paramfile.txt samplefile.txt recomfile.txt
 
 
