@@ -48,3 +48,8 @@ TIB	D
 ```bash
 perl /home/hp/Documents/Admixture_date/Chromopainter/All_sample_run_copy/ChromoPainterv2EstimatedNeMutExtractEM.pl
 ```
+**Step6: Generating the copy vector input file using n and M value got in previous step.** (looped in run_copy_vector_generater.sh)
+```bash
+bash /home/hp/Documents/Admixture_date/Chromopainter/All_sample_run_copy/run_copy_vector_generater.sh
+```
+
