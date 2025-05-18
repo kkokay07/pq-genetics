@@ -43,4 +43,8 @@ CHA	R
 IDC	D
 TIB	D
 ```
-
+**Step 5: Finding out n and M value**
+>Note: open .haps output file of step 3 and take SNP number which will be there in 2nd row and compile in ChromoPainterv2EstimatedNeExtractEM.pl in @chromovec and @chromolengths= )
+```bash
+perl /home/hp/Documents/Admixture_date/Chromopainter/All_sample_run_copy/ChromoPainterv2EstimatedNeMutExtractEM.pl
+```
