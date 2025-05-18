@@ -18,3 +18,29 @@ pos	chr	cM
 52854	1	0.052854
 81978	1	0.081978
 ```
+**Step 4: Estimate 'n' and 'm'(looped in run_ChromoPainterv2.sh)**
+```bash
+bash /home/hp/Documents/Admixture_date/Chromopainter/Equal_samples/KAM/run_ChromoPainterv2.sh
+```
+>Note: This requires INDI.txt with following format (Here CHA should be in top. If I am running for IDC, then IDC individuals should be at top.)
+```bash
+CHA_1	CHA	1
+CHA_2	CHA	1
+CHA_3	CHA	1
+CHA_4	CHA	1
+IDC_1	IDC	1
+IDC_2	IDC	1
+IDC_2	IDC	1
+TIB_1	TIB	1
+TIB_2	TIB	1
+```
+>Note: This also need POPSURR.txt with following format (in this example I am using CHA as recipient. So focus on CHA carefully)
+
+```bash
+IDC	D
+TIB	D
+CHA	R
+IDC	D
+TIB	D
+```
+
