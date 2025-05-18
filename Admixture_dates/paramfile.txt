@@ -1,0 +1,20 @@
+prop.ind: 1
+bootstrap.date.ind: 1
+null.ind: 1
+input.file.ids: INDI.txt
+input.file.copyvectors: cdtcpAll_DonorvALL.chunklengths.out
+save.file.main: CHA_all_chr.main
+save.file.bootstraps: CHA_all_chr.boot
+copyvector.popnames: IDC TIB
+surrogate.popnames: IDC TIB
+target.popname: CHA
+num.mixing.iterations: 5
+props.cutoff: 0.001
+bootstrap.num: 100
+num.admixdates.bootstrap: 1
+num.surrogatepops.perplot: 3
+curve.range: 1 30
+bin.width: 0.1
+xlim.plot: 0 30
+prop.continue.ind: 0
+haploid.ind: 0
